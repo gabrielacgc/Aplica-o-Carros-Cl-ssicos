@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Aplicação Carros Clássicos </title>
+<!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+   <!-- CSS  --> 
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+
+<!-- Modal para informações -->
+<!-- Para aparecer informações sobre os carros no (SAIBA MAIS...) -->
+
+<div class="modal" tabindex="-1" id="modalInfo">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 id="modalTitle" class="modal-title">  </h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" id="info">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"> Fechar </button>
+      </div>
+    </div>
+  </div>
+</div>  
+
+<!-- ####################### -->
+
+
+<!-- Conteúdo do Toats  -->
+
+<div class="toast-container position-fixed top-0 start-50 p-3">
+  <div id="toastInfo" class="toast align-items-center text-bg-primary" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="d-flex">
+          <div class="toast-body">
+              Informação não cadastrada.
+          </div>
+          <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+  </div>
+</div><!-- fim do bloco toats -->
+
+
+
+
+<!-- Sidebar -->
+    <main class="d-flex flex-nowrap">
+        <div class="d-flex flex-column flex-shrink-0 p-3 bg-light" style="width: 280px;">
+            <a href="index.html" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+<!-- Logotipo CARROS CLÁSSICOS -->
+              <img src="logo1.png" width="60" height="45" class="rounded-circle me-2">
+              <span class="fs-4 "> Carros Clássicos </span>
+            </a>
+            <hr>
+            <ul class="nav nav-pills flex-column mb-auto">
+              <li class="nav-item">
+                <a href="#" class="nav-link active" aria-current="page">
+                  <svg class="bi me-2" width="16" height="16"><use xlink:href="#home"></use></svg>
+                  Home
+                </a>
+              </li>
+              <li>
+                <a href="dashboard.html" class="nav-link link-dark">
+                  <svg class="bi me-2" width="16" height="16"><use xlink:href="#speedometer2"></use></svg>
+                  Dashboard
+                </a>
+              </li>
+            </ul>
+            <hr>
+            <div class="dropdown">
+              <a href="#" class="d-flex align-items-center link-dark text-decoration-none dropdown-toggle" id="dropdownUser2" data-bs-toggle="dropdown" aria-expanded="false">
+                <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
+                <strong> Usuário </strong>
+              </a>
+              <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2" >
+                <li><a class="dropdown-item" href="#">New project...</a></li>
+                <li><a class="dropdown-item" href="#">Settings</a></li>
+                <li><a class="dropdown-item" href="#">Profile</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="#">Sign out</a></li>
+              </ul>
+            </div>
+          </div>
+
+    <!-- container principal-->
+    
+    <div class="container-fluid overflow-auto p-5">
+
+<!-- Barra de Pesquisa -->
+
+    <div class="row mt-4">
+        <div class="col-11">
+            <input id="nome" class="form-control" type="text" placeholder="Digite o nome do carro..." aria-label="...">
+        </div>  
+<!-- Botão de Pesquisa -->        
+        <div class="col-1">
+<!-- Ativa pela funcao pesquisar  -->
+            <button type="button" class="btn btn-primary" onclick="pesquisar()"> Pesquisar </button>
+        </div>
+    </div>
+
+<!-- Pesquisa info  -->
+  <div class="row mt-1">
+      <div class="col" id="pesquisaInfo">
+
+          
+      </div>
+  </div>    
+<!-- ############################################################################################## -->    
+
+<!-- Título dos Carros -->
+
+<div class="row mt-5">
+    <div class="col">
+        <h2> Carros Clássicos </h2>
+        <hr>
+    </div>
+</div>
+
+<!-- ############################################################################################## -->
+
+<!-- INICIO DOS CARDS -->
+<!-- COLUNAS COM O NOME E INFORMAÇÕES DOS CARROS -->
+
+        <div class="row mt-4" id="infoRow" >
+            <div class="col d-flex justify-content-center">
+        <!-- PRIMEIRO CARD -->        
+                <div class="card" style="width: 18rem;">
+                    <img src=" img/dodge_dart.jpg " class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Dodge Dart (duas portas)</h5>
+                      <p class="card-text"> Quem também conquistou o coração dos brasileiros foi o Dodge Dart. </p>
+                      <a href="#" onclick="saibaMais('Dodge Dart (duas portas)')"  class="btn btn-link"> Saiba mais... </a>
+                    </div>
+                  </div>
+            </div>
+            <!-- Segunda Coluna -->
+            <div class="col">        
+                        <div class="card" style="width: 18rem;">
+                            <img src=" img/landau.jpeg " class="card-img-top" alt="...">
+                            <div class="card-body">
+                              <h5 class="card-title"> Ford Landau </h5>
+                              <p class="card-text"> Símbolo de poder, o Ford Landau tornou-se o carro oficial do presidente da República. </p>
+                              <a href="#" class="btn btn-link" onclick="saibaMais('Ford Landau')"  > Saiba mais... </a>
+                            </div>
+                          </div>
+                    </div>
+        <!-- Terceira Coluna -->
+        <div class="col">        
+            <div class="card" style="width: 18rem;">
+                <img src="img/camaro.jpg " class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title"> Chevrolet Camaro Coupé </h5>
+                  <p class="card-text"> Com mais de 50 anos de estrada, o Camaro é um coupé esportivo de porte médio da Chevrolet. </p>
+                  <a href="#" class="btn btn-link"  onclick="saibaMais('Chevrolet Camaro Coupé')" > Saiba mais... </a>
+                </div>
+              </div>
+        </div>
+
+<!-- ############################################################################################################################################## -->
+
+        <!-- Segundo CARD -->
+
+        <div class="row mt-4" >
+          <div class="col">
+      <!-- QUARTA COLUNA -->        
+              <div class="card" style="width: 18rem;">
+                  <img src="img/fusca.jpg" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title"> Fusca </h5>
+                    <p class="card-text"> O Volkswagen Type 1, popularmente conhecido como Fusca (no Brasil) ou Carocha (em Portugal). </p>
+                    <a href="#" class="btn btn-link" onclick="saibaMais('Fusca')" > Saiba mais... </a>
+                  </div>
+                </div>
+          </div>
+    <!-- QUINTA COLUNA -->
+          <div class="col">        
+            <div class="card" style="width: 18rem;">
+                <img src="img/kombi.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title"> Kombi Corujinha </h5>
+                  <p class="card-text"> Grande destaque na pesquisa, este veículo da Volkswagen, vendido no Brasil entre os anos de 1950 a 1975. </p>
+                  <a href="#" class="btn btn-link" onclick="saibaMais('Kombi Corujinha')" > Saiba mais... </a>
+                </div>
+              </div>
+        </div>
+
+        <!-- SEXTA COLUNA -->
+        <div class="col">        
+          <div class="card" style="width: 18rem;">
+              <img src="img/diplomata.jpeg" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title"> Chevrolet Opala Diplomata 4.1 </h5>
+                <p class="card-text"> Clássico dos clássicos, o Opala Diplomata foi topo de linha do clássico modelo da Chevrolet. </p>
+                <a href="#" class="btn btn-link" onclick="saibaMais('Chevrolet Opala Diplomata 4.1')" > Saiba mais... </a>
+              </div>
+            </div>
+      </div>
+
+<!-- Fim do row -->        
+        </div>
+<!-- Fim do container -->
+    </div>
+
+    </main><!-- fim da main -->
+
+<!-- ########################################################################################### -->
+<!-- ########################################################################################### -->
+    
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+<!-- Java Script -->
+<script src="dados.js"></script>
+<script src="main.js"></script>    
+</body>
+</html>-
